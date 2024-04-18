@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@antv/g2plot": "^2.4.31",
     "@react-three/drei": "^9.105.3",
     "@react-three/fiber": "^8.16.2",
     "@testing-library/jest-dom": "^5.17.0",
