@@ -1,5 +1,5 @@
 import "./App.css";
-import { Model } from "./BlenderModel";
+import { Model } from "./Model";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Area } from '@antv/g2plot';
@@ -194,7 +194,7 @@ gauge.render();
           </div>
         </div>
         <div class="map">
-        <Canvas camera={{ fov: 64, position: [2, 2, 0] }}>
+        <Canvas camera={{ fov: 64, position: [200, 300, 200] }}>
       {/* 调整光源的位置 */}
       <ambientLight intensity={5} position={[-2, 2, 2]} />
       {/* 添加一个点光源 */}
