@@ -85,6 +85,7 @@ header h1 {
   color: rgba(255, 255, 255, 0.87);
   text-align: center;
   line-height: 1rem;
+  text-shadow: 0 0 .1em, 0 0 .3em;
 }
 header .show-time {
   position: absolute;
@@ -93,6 +94,8 @@ header .show-time {
   line-height: 0.9375rem;
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.25rem;
+  text-shadow:  1px 1px hsl(238, 81%, 49%), 2px 2px hsl(238, 81%, 49%),
+  3px 3px hsl(238, 81%, 49%), 4px 4px hsl(238, 81%, 49%);
 }
 .mainbox {
   display: flex;
@@ -291,6 +294,57 @@ header .show-time {
 .chart-container {
   width: 400px; /* Set your desired width */
   height: 300px; /* Set your desired height */
+}
+#box-table-a
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	margin: 45px;
+	width: 480px;
+	text-align: left;
+	border-collapse: collapse;
+  background: transparent;
+}
+#box-table-a th
+{
+	font-size: 13px;
+	font-weight: normal;
+	padding: 8px;
+	background: #b9c9fe;
+	border-top: 4px solid #aabcfe;
+	border-bottom: 1px solid #fff;
+	color: #fff;
+  background: transparent;
+}
+#box-table-a td
+{
+	padding: 8px;
+	background: #e8edff; 
+	border-bottom: 1px solid #fff;
+	color: #669;
+	border-top: 1px solid transparent;background: transparent;
+
+}
+#box-table-a tr:hover td
+{
+	background: #d0dafd;
+	color: #339;
+  background: transparent;
+}
+.neon {
+  text-shadow: 0 0 3vw #F4BD0A;
+  animation: neon 2s ease-in-out infinite;
+}
+
+@keyframes neon {
+  0%, 100% {
+    text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+    color: #FFFC00;
+  }
+  50% {
+    text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+    color: #806914;
+  }
 }
 @keyframes rotate1 {
   from {
