@@ -6,6 +6,7 @@ import { Area } from '@antv/g2plot';
 import { useEffect,useState,useRef } from "react";
 import { Gauge, G2 } from '@antv/g2plot';
 import { Pie } from '@antv/g2plot';
+import DataTable from "./chart/lineChart";
 
 function App() {
   const [currentTime, setCurrentTime] = useState(new Date());
@@ -18,33 +19,6 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-
-  const [data, setData] = useState([]);
-  const [intervalId, setIntervalId] = useState(null);
-
-  // fetch('https://gw.alipayobjects.com/os/bmw-prod/360c3eae-0c73-46f0-a982-4746a6095010.json')
-  // .then((res) => res.json())
-  // .then((originalData) => {
-  //   let cnt = 2;
-  //   const area = new Area('container', {
-  //     data: originalData.slice(0, cnt),
-  //     xField: 'timePeriod',
-  //     yField: 'value',
-  //     xAxis: {
-  //       range: [0, 1],
-  //     },
-  //   });
-  //   area.render();
-
-  //   const interval = setInterval(() => {
-  //     if (cnt === originalData.length) {
-  //       clearInterval(interval);
-  //     } else {
-  //       cnt += 1;
-  //       area.changeData(originalData.slice(0, cnt));
-  //     }
-  //   }, 400);
-  // });
 
 
   const containerRef = useRef(null);
@@ -149,10 +123,54 @@ gauge.render();
     };
   }, []); // 移除依赖，确保只在组件挂载时执行一次
 
+  const piecontainerRef = useRef(null);
+
+  useEffect(() => {
+    if (piecontainerRef.current) {
+      const data = [
+        { type: '分类一', value: 27 },
+        { type: '分类二', value: 25 },
+        { type: '分类三', value: 18 },
+        { type: '分类四', value: 15 },
+        { type: '分类五', value: 10 },
+        { type: '其他', value: 5 },
+      ];
+
+      const piePlot = new Pie(piecontainerRef.current, {
+        appendPadding: 10,
+        data,
+        height:200,
+        angleField: 'value',
+        colorField: 'type',
+        radius: 0.9,
+        label: {
+          type: 'inner',
+          offset: '-30%',
+          content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
+          style: {
+            fontSize: 14,
+            textAlign: 'center',
+          },
+        },
+        interactions: [{ type: 'element-active' }],
+      });
+
+      piePlot.render();
+      setInterval(() => {
+        piePlot.changeData(data.map((d) => ({ ...d, value: d.value * Math.random() })));
+      }, 1200);
+      return () => {
+        piePlot.destroy();
+      };
+    }
+  }, []);
+  
+  
   return (
     <body>
     <header>
-      <h1>数据可视化</h1>
+      <h1>
+<div class="neon">数据可视化</div></h1>
       <div class="show-time">
       当前时间：
       {currentTime.getFullYear()}年
@@ -175,14 +193,60 @@ gauge.render();
           <div class="panel-footer"></div>
         </div>
         <div class="panel line">
-          <h2>折线图-设备数据量
-          </h2>
+        <h2>饼形图-设备数据量</h2>
+          <div style={{marginTop:'-20px'}}><div ref={piecontainerRef} id="container"></div>
+      </div>
           <div class="panel-footer"></div>
         </div>
         <div class="panel pie">
-          <h2>饼形图-设备数据量</h2>
-          <div class="chart"></div>
-          <div class="panel-footer"></div>
+          <h2>饼形图-设备情况</h2>
+          <table id="box-table-a" summary="Employee Pay Sheet">
+    <thead>
+    	<tr>
+        	<th scope="col">设备名称</th>
+            <th scope="col">状态</th>
+            <th scope="col"> PLC报警</th>
+            <th scope="col">开机时间</th>
+            <th scope="col">使用时间</th>
+
+        </tr>
+    </thead>
+    <tbody>
+    	<tr>
+        	<td>机械臂1</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+            <td>$300</td>
+
+        </tr>
+        <tr>
+        	<td>机械臂2</td>
+          <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+            <td>$300</td>
+>
+        </tr>
+        <tr>
+        	<td>机械臂3</td>
+          <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+            <td>$300</td>
+
+        </tr>
+        <tr>
+        	<td>agv</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+            <td>$300</td>
+
+        </tr>
+    </tbody>
+</table>
+          <div class="panel-footer"> </div>
         </div>
       </div>
 
@@ -190,7 +254,7 @@ gauge.render();
 
         <div class="no">
           <div class="no-hd">
-          <div ref={containerRef}id="container_1"></div>
+          <div ref={containerRef}></div>
           </div>
         </div>
         <div class="map">
@@ -206,14 +270,114 @@ gauge.render();
       </div>
       <div class="column">
         <div class="panel bar2">
-          <h2>柱形图-设备数据量</h2>
-          <div class="chart"></div>
+          <h2>设备目前坐标</h2>
+           <table id="box-table-a" summary="Employee Pay Sheet">
+    <thead>
+    	<tr>
+        	<th scope="col">设备名称</th>
+            <th scope="col">C1</th>
+            <th scope="col">C2</th>
+            <th scope="col">C3</th>
+            <th scope="col">C4</th>
+            <th scope="col">C5</th>
+            <th scope="col">C6</th>
+        </tr>
+    </thead>
+    <tbody>
+    	<tr>
+        	<td>机械臂1</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+        </tr>
+        <tr>
+        	<td>机械臂2</td>
+          <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+        </tr>
+        <tr>
+        	<td>机械臂3</td>
+          <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+        </tr>
+        <tr>
+        	<td>agv</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+        </tr>
+    </tbody>
+</table>
           
           <div class="panel-footer"></div>
         </div>
         <div class="panel line2">
-          <h2>折线图-设备数据量</h2>
-          <div class="chart"></div>
+          <h2>设备目前坐标</h2>
+          <div class="chart"> <table id="box-table-a" summary="Employee Pay Sheet">
+    <thead>
+    	<tr>
+        	<th scope="col">设备名称</th>
+            <th scope="col">X</th>
+            <th scope="col">Y</th>
+            <th scope="col">Z</th>
+            <th scope="col">A</th>
+            <th scope="col">B</th>
+            <th scope="col">C</th>
+        </tr>
+    </thead>
+    <tbody>
+    	<tr>
+        	<td>机械臂1</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+        </tr>
+        <tr>
+        	<td>机械臂2</td>
+          <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+        </tr>
+        <tr>
+        	<td>机械臂3</td>
+          <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+        </tr>
+        <tr>
+        	<td>agv</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+            <td>$300</td>
+            <td>$50</td>
+            <td>Bob</td>
+        </tr>
+    </tbody>
+</table></div>
           <div class="panel-footer"></div>
         </div>
         <div class="panel pie2">
