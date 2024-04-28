@@ -269,7 +269,7 @@ function App() {
               <pointLight intensity={1} position={[5, 5, 5]} />
               <OrbitControls enableZoom={true} />
               {/* 根据状态决定展示哪个模型 */}
-              {showModel ? <Model /> : <Shuilunji />}
+              {showModel ? <Shuilunji />: <Model />}
             </Canvas>
             <button onClick={toggleModel}>切换模型</button>
           </div>
