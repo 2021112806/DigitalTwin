@@ -31,15 +31,11 @@ export function Model(props) {
         <mesh geometry={nodes.哈工大物联网001_3.geometry} material={materials['mat-4.002']} />
       </group>
       <group position={[-137.677, 109.678, 135.123]} rotation={[Math.PI / 2, 0, 0]} scale={0.109}>
-        <mesh geometry={nodes.哈工大物联网005_1.geometry} material={materials['mat-1.003']} />
-        <mesh geometry={nodes.哈工大物联网005_2.geometry} material={materials['mat-2.003']} />
-        <mesh geometry={nodes.哈工大物联网005_3.geometry} material={materials['mat-3.003']} />
-        <mesh geometry={nodes.哈工大物联网005_4.geometry} material={materials['mat-4.003']} />
-        <mesh geometry={nodes.哈工大物联网005_5.geometry} material={materials['mat-5.003']} />
-      </group>
-      <group position={[-112.685, 38.672, 245.211]} rotation={[Math.PI / 2, 0, 0]} scale={0.078}>
-        <mesh geometry={nodes.哈工大物联网006.geometry} material={materials['mat-1.004']} />
-        <mesh geometry={nodes.哈工大物联网006_1.geometry} material={materials['mat-4.004']} />
+        <mesh geometry={nodes.哈工大物联网005.geometry} material={materials['mat-1.003']} />
+        <mesh geometry={nodes.哈工大物联网005_1.geometry} material={materials['mat-2.003']} />
+        <mesh geometry={nodes.哈工大物联网005_2.geometry} material={materials['mat-3.003']} />
+        <mesh geometry={nodes.哈工大物联网005_3.geometry} material={materials['mat-4.003']} />
+        <mesh geometry={nodes.哈工大物联网005_4.geometry} material={materials['mat-5.003']} />
       </group>
       <group position={[151.564, 112.676, -99.131]} rotation={[Math.PI / 2, 0, Math.PI]} scale={0.109}>
         <mesh geometry={nodes.哈工大物联网007.geometry} material={materials['mat-1.005']} />
@@ -48,10 +44,23 @@ export function Model(props) {
         <mesh geometry={nodes.哈工大物联网007_3.geometry} material={materials['mat-4.005']} />
         <mesh geometry={nodes.哈工大物联网007_4.geometry} material={materials['mat-5.005']} />
       </group>
-      <group position={[126.572, 41.671, -209.219]} rotation={[Math.PI / 2, 0, Math.PI]} scale={0.078}>
-        <mesh geometry={nodes.哈工大物联网008.geometry} material={materials['mat-1.006']} />
-        <mesh geometry={nodes.哈工大物联网008_1.geometry} material={materials['mat-4.006']} />
-      </group>
+      <mesh geometry={nodes.立方体.geometry} material={materials['材质.012']} position={[113.119, 22.79, 74.72]} scale={-23.822} />
+      <mesh geometry={nodes.柱体.geometry} material={materials['材质.009']} position={[94.136, -4.47, 93.817]} scale={3.782} />
+      <mesh geometry={nodes.柱体001.geometry} material={materials['材质.011']} position={[94.136, -4.47, 56.021]} scale={3.782} />
+      <mesh geometry={nodes.柱体002.geometry} material={materials['材质.010']} position={[131.81, -4.47, 55.899]} scale={3.782} />
+      <mesh geometry={nodes.柱体003.geometry} material={materials['材质.008']} position={[131.81, -4.47, 93.329]} scale={3.782} />
+      <mesh geometry={nodes.立方体001.geometry} material={materials['材质.003']} position={[113.119, 22.79, 74.72]} scale={-23.822} />
+      <mesh geometry={nodes.立方体002.geometry} material={materials['材质.002']} position={[113.119, 70.312, 74.72]} scale={-23.822} />
+      <mesh geometry={nodes.立方体003.geometry} material={materials['材质.013']} position={[96.915, 63.73, 73.639]} scale={3.467} />
+      <mesh geometry={nodes.立方体006.geometry} material={materials['材质.015']} position={[103.693, 89.208, 65.676]} rotation={[Math.PI / 2, 0, 0]} scale={3.467} />
+      <mesh geometry={nodes.立方体004.geometry} material={materials['材质.007']} position={[96.915, 63.73, 73.639]} scale={3.467} />
+      <mesh geometry={nodes.立方体005.geometry} material={materials['材质.014']} position={[96.915, 90.155, 73.639]} scale={2.924} />
+      <mesh geometry={nodes.柱体004.geometry} material={materials['材质.017']} position={[103.598, 83.152, 92.311]} scale={-3.008} />
+      <mesh geometry={nodes.立方体007.geometry} material={materials['材质.016']} position={[103.693, 90.345, 86.725]} rotation={[Math.PI / 2, 0, 0]} scale={3.87} />
+      <mesh geometry={nodes.平面.geometry} material={materials['材质.005']} position={[103.587, 59.848, 94.222]} scale={6.031} />
+      <mesh geometry={nodes.平面001.geometry} material={materials['材质.004']} position={[118.507, 80.503, 65.216]} rotation={[1.529, 0, 0]} scale={15.773} />
+      <mesh geometry={nodes.平面002.geometry} material={materials['材质.006']} position={[120.923, 60.058, 63.462]} scale={6.031} />
+      <mesh geometry={nodes.立方体008.geometry} material={nodes.立方体008.material} position={[120.914, 72.654, 62.65]} scale={2.224} />
     </group>
   )
 }
