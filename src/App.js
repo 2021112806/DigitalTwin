@@ -1,5 +1,6 @@
 import "./App.css";
 import { Model } from "./Model";
+import { Shuilunji } from "./Shuilunji";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Area } from '@antv/g2plot';
@@ -10,7 +11,11 @@ import DataTable from "./chart/lineChart";
 
 function App() {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [showModel, setShowModel] = useState(true);
 
+  const toggleModel = () => {
+    setShowModel(!showModel);
+  };
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTime(new Date());
@@ -263,8 +268,10 @@ function App() {
               {/* 添加一个点光源 */}
               <pointLight intensity={1} position={[5, 5, 5]} />
               <OrbitControls enableZoom={true} />
-              <Model />
+              {/* 根据状态决定展示哪个模型 */}
+              {showModel ? <Model /> : <Shuilunji />}
             </Canvas>
+            <button onClick={toggleModel}>切换模型</button>
           </div>
         </div>
         <div class="column">

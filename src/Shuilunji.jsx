@@ -6,8 +6,8 @@ Command: npx gltfjsx@6.2.16 public/blenderStuff/Shuilunji.glb
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 
-export function Model(props) {
-  const { nodes, materials } = useGLTF('/Shuilunji.glb')
+export function Shuilunji(props) {
+  const { nodes, materials } = useGLTF('/blenderStuff/Shuilunji.glb')
   return (
     <group {...props} dispose={null}>
       <group position={[1.348, 5.609, -0.348]} rotation={[Math.PI, 0, Math.PI]} scale={0.006}>
@@ -57,4 +57,4 @@ export function Model(props) {
   )
 }
 
-useGLTF.preload('/Shuilunji.glb')
+useGLTF.preload('/blenderStuff/Shuilunji.glb')
